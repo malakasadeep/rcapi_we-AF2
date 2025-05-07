@@ -1,0 +1,10 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@theme {
+  --color-bg-light: #F5EFE7;
+  --color-accent: #D8C4B6;
+  --color-primary: #3E5879;
+  --color-primary-dark: #213555;
+}
