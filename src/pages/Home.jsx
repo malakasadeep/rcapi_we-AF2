@@ -62,7 +62,7 @@ function Home() {
   };
   
   return ( 
-    <div className="min-h-screen bg-bgLight/50 transition-all duration-300">
+    <div className="min-h-screen bg-bgLight transition-all duration-300">
       <NavBar/>
       <HeroSection/>
       <SearchForm onSearchResults={handleSearchResults}/>
@@ -126,10 +126,11 @@ function Home() {
                     {currentPage}/{totalPages}
                   </span>
                   
+                  {/* Next button for mobile only */}
                   <button
                     onClick={nextPage}
                     disabled={currentPage === totalPages}
-                    className={`flex items-center px-3 py-1.5 sm:px-4 sm:py-2 ml-2 sm:ml-3 rounded-md text-sm
+                    className={`flex items-center px-3 py-1.5 sm:px-4 sm:py-2 ml-2 sm:ml-3 rounded-md text-sm sm:hidden
                               ${currentPage === totalPages
                                 ? 'bg-gray-200 text-gray-500 cursor-not-allowed' 
                                 : 'bg-accent text-white hover:bg-primary transition-colors'}`}
@@ -139,7 +140,7 @@ function Home() {
                   </button>
                 </div>
                 
-                <div className="hidden md:flex">
+                <div className="hidden md:flex items-center">
                   {[...Array(Math.min(5, totalPages))].map((_, idx) => {
                     let pageNum;
                     if (totalPages <= 5) {
@@ -166,11 +167,24 @@ function Home() {
                       </button>
                     );
                   })}
+                  
+                  <span className="hidden sm:inline mx-4 text-primary">
+                    Page {currentPage} of {totalPages}
+                  </span>
+                  
+                  {/* Next button for desktop, positioned on the right */}
+                  <button
+                    onClick={nextPage}
+                    disabled={currentPage === totalPages}
+                    className={`hidden sm:flex items-center px-4 py-2 ml-2 rounded-md text-sm
+                              ${currentPage === totalPages
+                                ? 'bg-gray-200 text-gray-500 cursor-not-allowed' 
+                                : 'bg-accent text-white hover:bg-primary transition-colors'}`}
+                  >
+                    Next
+                    <ChevronRight size={16} className="ml-1" />
+                  </button>
                 </div>
-                
-                <span className="hidden sm:inline mx-4 text-primary">
-                  Page {currentPage} of {totalPages}
-                </span>
               </div>
             )}
           </>

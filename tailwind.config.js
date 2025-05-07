@@ -26,8 +26,30 @@ export default {
           '50%': { opacity: 0.5 },
         },
       },
+      // Add animation delay utilities
+      transitionDelay: {
+        '150': '150ms',
+        '300': '300ms',
+        '450': '450ms',
+        '600': '600ms',
+      },
+      // Add custom animation delay class
+      utilities: {
+        '.animation-delay-150': {
+          'animation-delay': '150ms',
+        },
+        '.animation-delay-300': {
+          'animation-delay': '300ms',
+        },
+        '.animation-delay-450': {
+          'animation-delay': '450ms',
+        },
+        '.animation-delay-600': {
+          'animation-delay': '600ms',
+        },
+      },
     },
   },
-  plugins: [], // Removed the incomplete require() call
+  plugins: [],
 }
 

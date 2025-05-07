@@ -76,7 +76,7 @@ function CountryDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-bgLight/50 pb-6 sm:pb-12">
+    <div className="min-h-screen bg-bgLight pb-6 sm:pb-12">
       <NavBar />
       
       <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-8">
