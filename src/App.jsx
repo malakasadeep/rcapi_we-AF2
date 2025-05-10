@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import CountryDetail from './pages/CountryDetail'
 import Footer from './components/Footer'
+import Favorites from './pages/Favorites'
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/country/:code" element={<CountryDetail />} />
+            <Route path="/favorites" element={<Favorites />} />
           </Routes>
         </div>
         <Footer />

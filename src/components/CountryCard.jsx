@@ -9,6 +9,8 @@ const CountryCard = ({ country }) => {
   const unsubscribeRef = useRef(null);
 
   const formatPopulation = (population) => {
+    // Add a safety check for undefined or null population
+    if (population === undefined || population === null) return 'N/A';
     return population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
@@ -60,7 +62,8 @@ const CountryCard = ({ country }) => {
         name: country.name,
         flags: country.flags,
         region: country.region,
-        capital: country.capital
+        capital: country.capital,
+        population: country.population || 0 // Ensure population is always defined
       };
       updatedFavorites = [...favorites, countryInfo];
     }

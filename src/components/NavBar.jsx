@@ -4,6 +4,7 @@ import SignInPopup from './SignInPopup';
 import SignUpPopup from './SignUpPopup';
 import ProfileMenu from './ProfileMenu';
 import authAPI from '../services/authAPI';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -218,6 +219,25 @@ function NavBar() {
             </button>
           </>
         )}
+      </div>
+      
+      <div className="hidden md:flex items-center ml-4 gap-3">
+        {isAuthenticated && (
+          <Link 
+            to="/favorites"
+            className="relative p-2 text-primary hover:text-accent transition-colors group"
+          >
+            <Heart 
+              size={20} 
+              className="transition-all duration-300 transform group-hover:scale-110" 
+            />
+            <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-accent rounded-full">
+              {authAPI.getFavoriteCountries().length}
+            </span>
+          </Link>
+        )}
+        
+        {/* ...existing profile button code... */}
       </div>
       
       {/* Mobile Menu */}
